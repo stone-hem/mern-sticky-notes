@@ -50,7 +50,6 @@ app.all('*',(req, res)=>{
 app.use(errorHandler)
 
     // app.listen(PORT,()=>console.log(`Server Running on Port http://localhost:${PORT}`))
-
 mongoose.connection.once('open',()=>{
     console.log('connected to MongoDB ...')
     app.listen(PORT,()=>console.log(`Server Running on Port http://localhost:${PORT}`))
