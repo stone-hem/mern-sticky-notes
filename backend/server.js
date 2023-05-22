@@ -32,8 +32,10 @@ app.use('/',express.static(path.join(__dirname,'public')))
 
 //create routers
 app.use('/',require('./routes/root'))
+app.use('/auth',require('./routes/authRoutes'))
 app.use('/users',require('./routes/userRoutes'))
 app.use('/notes',require('./routes/noteRoutes'))
+
 
 app.all('*',(req, res)=>{
     res.status(404)
