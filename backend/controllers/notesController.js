@@ -59,8 +59,19 @@ const createNote = asyncHandler(async (req, res) => {
 
 const updateNote = asyncHandler(async (req, res) => {
     const { id,user, title, desc, completed } = req.body
-    if (!id ||!user || !desc || !title || typeof completed !== 'boolean') {
-        return res.status(400).json({ message: 'Kindly fill all field' })
+    // if (!user || !desc || !title || typeof completed !== 'boolean') {
+    //     return res.status(400).json({ message: 'Kindly fill all field' })
+    // }
+    if (!id ) {
+        return res.status(400).json({ message: 'Id required' })
+    } else if(!user) {
+        return res.status(400).json({ message: 'User required' })
+    }else if(!desc) {
+        return res.status(400).json({ message: 'Desc required' })
+    }else if(!title) {
+        return res.status(400).json({ message: 'Title required' })
+    }else if(typeof completed !== 'boolean') {
+        return res.status(400).json({ message: 'Must be boolean' })
     }
 
     const note = await Note.findById(id).exec()

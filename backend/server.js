@@ -27,7 +27,6 @@ app.use(express.json())
 //third party middleware for cookies
 app.use(cookieParser())
 
-
 //tells our server where to get the static files
 app.use('/',express.static(path.join(__dirname,'public')))
 
