@@ -1,1 +1,1 @@
-# mern-sticky-notes
+# mern application 
